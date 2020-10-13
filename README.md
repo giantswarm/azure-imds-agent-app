@@ -21,12 +21,8 @@
 -->
 [![CircleCI](https://circleci.com/gh/giantswarm/azure-imds-agent-app.svg?style=shield&circle-token=cbabd7d13186f190fca813db4f0c732b026f5f6c)](https://circleci.com/gh/giantswarm/azure-imds-agent-app)
 
-# REPOSITORY_NAME
+# azure-imds-agent-app
 
-This is a template repository containing some basic files every repository
-needs.
-
-To use it just hit `Use this template` button or [this
-link][generate].
-
-[generate]: https://github.com/giantswarm/azure-imds-agent-app/generate
+App that talks to Azure Instance Metadata Service (IMDS) and exposes instance
+metadata in Kubernetes cluster.
+ 
