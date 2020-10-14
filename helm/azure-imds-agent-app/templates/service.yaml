@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-imds-agent-app-service
+  namespace: giantswarm
+  labels:
+    name: azure-imds-agent-app
+    app: azure-imds-agent-app
+spec:
+  type: NodePort
+  ports:
+    - port: 8000
+      protocol: TCP
+      nodePort: 32213
+  selector:
+    app: azure-imds-agent-app

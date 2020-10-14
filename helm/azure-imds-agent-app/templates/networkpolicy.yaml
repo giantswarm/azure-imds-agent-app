@@ -1,0 +1,36 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: azure-imds-agent-app
+  namespace: giantswarm
+  labels:
+    name: azure-imds-agent-app
+    app: azure-imds-agent-app
+spec:
+  podSelector:
+    matchLabels:
+      app: azure-imds-agent-app
+  ingress:
+  - ports:
+    - port: 8000
+      protocol: TCP
+    - port: 8001
+      protocol: TCP
+  - from:
+      - ipBlock:
+          cidr: 10.0.0.0/16
+  - from:
+      - podSelector:
+          matchLabels:
+            app: azure-imds-agent-app
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 169.254.169.254/32
+  - to:
+      - podSelector:
+          matchLabels:
+            app: azure-imds-agent-app
+  policyTypes:
+    - Ingress
+    - Egress

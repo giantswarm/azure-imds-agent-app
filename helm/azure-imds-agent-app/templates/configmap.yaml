@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: azure-imds-agent-app-configmap
+  namespace: giantswarm
+data:
+  config.yaml: |
+    server:
+      enable:
+        debug:
+          server: true
+      listen:
+        address: 'http://0.0.0.0:8000'
+        metricsaddress: 'http://0.0.0.0:8001'
